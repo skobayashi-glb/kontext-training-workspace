@@ -2,6 +2,13 @@
 
 作成日: 2026-10-31
 
+## 容量整理とfal成功例（2026-11-01）
+容量整理後、対象EC2の `stopped` を確認済み。新しい学習は実行していない。
+
+Kontext以外を調査し、開口分類環境のモデル以外とローカルKontext実装を、ユーザー指定の `skobayashi-glb` の非公開GitHubへ保存した。非Kontext環境・Qwenキャッシュ・pipキャッシュ等を削除し、空きが24.79→46.22 GiBに増加。実施内容、削除したモデル、バックアップ先と残る検証は [容量整理の記録](reports/EC2_STORAGE_CLEANUP_20261101.md) を参照。
+
+fal成功例とユーザーが考えている `models/M5Nrqn7TF4C94MjQIq7Ha_adapter_model.safetensors` は保持。ヘッダー上のrankは16。ユーザーが報告した成功回は100ペア・3000 steps・`a photo of TOK floor plan.`・出力形式fal。別の既存configは1000 stepsであり、同じLoRAの設定かは未確認。詳細は [fal再現メモ](reports/FAL_REPRODUCTION.md)。学習は未実行。
+
 ## 最新の運用方針（2026-11-01）
 
 ユーザーの指示により管理者への依頼は行わず、当面は以前のAWSアカウントの既存EC2を学習時に起動し、終了後に停止する方式を使用する。`aws_config.json` はもともとの `default` / `i-02c9d1450ba6014f4` のままで、切り戻しの設定変更は不要。2026-11-01の読み取り確認では `default` のAWSログインが期限切れだったため、次にAWS操作をする際に `aws login --profile default` が必要。今回EC2は起動していない。

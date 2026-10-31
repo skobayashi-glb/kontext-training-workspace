@@ -6,7 +6,7 @@
 
 - 使用画像は **100ペア**。
 - **stepsは3000** に設定。学習率の実設定はまだ分からない。
-- 成功回のプロンプトは、ユーザーが **`a photo of TOK floor plan.`** と確認した。現在のローカル候補は別の長い編集指示へ変わっているため、そのままでは条件が一致しない。
+- 成功回のプロンプトは、ユーザーが **`a photo of TOK floor plan.`** と確認した。ローカルの `training_config.json` のcaption・instruction・inference_instructionを、この確認済みの文に揃えた。設定変更だけで、学習は実施していない。
 - `output_lora_format` は **fal**。これはLoRAの保存時のキー・名前の形式を選ぶ設定であり、学習精度を直接高める設定ではない。ローカルで読み込むには形式の互換性を確認する。
 
 EC2の `models/` に `M5Nrqn7TF4C94MjQIq7Ha_adapter_model.safetensors` と、fal由来に見えるconfigがある。ユーザーから「EC2に残っているLoRAが成功例だと思う」との情報を得たため、このLoRAを成功モデルの有力候補として保護する。取得済みの[config](../.local/history/20261031-191756/models/5p5Ji9mQCgce2qsbF_N0h_config_fa8cf0f5-0215-437e-bd48-387a95468e12.json)は `steps=1000`, `learning_rate=1e-4`, `default_caption=a photo of TOK floor plan.`, `output_lora_format=fal`。**ユーザーが報告した3000 stepsとは異なる**ため、この設定と上記LoRAが同じ実行の成果物とは決めつけない。モデルの形式・読み込み・画像出力と紐付けを調べる。

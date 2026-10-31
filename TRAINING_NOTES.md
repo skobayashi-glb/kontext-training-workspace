@@ -14,7 +14,7 @@
 
 ## 現時点の結論
 
-2026-11-01追加: ユーザーはfal.aiで画像100ペア、3000 steps、プロンプト `a photo of TOK floor plan.`、LoRA出力形式falでKontextの学習に成功済み。現在のローカル候補の長いinstructionとは異なる。まずfalの条件をEC2上で再現することを目標とする。公開APIの既定値や現行コードとの差・未確認事項は [fal再現メモ](reports/FAL_REPRODUCTION.md) に記録。ユーザーによればEC2に残るLoRAが成功例の可能性が高く、ヘッダー確認では **rank16**、保存F32、305の融合LoRA層だった。別に1000 stepsのconfigもあるが、報告された3000 stepsとは異なり、そのLoRAと同じ回の成果物か未確認。rank32・encoder固定はユーザーが当面の候補として了承したが、成功LoRAのrank16判明を踏まえて比較する。
+2026-11-01追加: ユーザーはfal.aiで画像100ペア、3000 steps、プロンプト `a photo of TOK floor plan.`、LoRA出力形式falでKontextの学習に成功済み。確認された文へ現在のtraining_config.jsonのcaption・instruction・inference_instructionを揃えた。まずfalの条件をEC2上で再現することを目標とする。公開APIの既定値や現行コードとの差・未確認事項は [fal再現メモ](reports/FAL_REPRODUCTION.md) に記録。ユーザーによればEC2に残るLoRAが成功例の可能性が高く、ヘッダー確認では **rank16**、保存F32、305の融合LoRA層だった。別に1000 stepsのconfigもあるが、報告された3000 stepsとは異なり、そのLoRAと同じ回の成果物か未確認。rank32・encoder固定はユーザーが当面の候補として了承したが、成功LoRAのrank16判明を踏まえて比較する。
 
 2026-11-01追記: 学習可能な位置・パラメータ数・公開設定・BF16更新の仮説を [Kontext LoRA容量調査](reports/KONTEXT_LORA_CAPACITY_RESEARCH.md) にまとめた。現在のTransformer LoRAはrank32で約1.72億個、過去のrank64は約3.44億個の計算。**現在の画像評価付き経路はCLIP/T5の学習を拒否する制約があり、以前の「全設定を変更できる」という説明は不正確だった。** また、BF16学習可能重みの小さい更新が丸められる可能性をローカルCPUの小実験で確認したが、実EC2のdtypeや更新割合は未確認。実験はまだ行っていない。
 
@@ -55,7 +55,7 @@ B行列の集計対象は主safetensors内の行列（AはtransformerとCLIP）�
 | epoch・batch | 上限30、batch 2、勾配累積2 | 30は上限であり適正値の保証ではない。実効batchは通常約4組、端数・bucketにより変わる。少数データ診断ではepochより実optimizer更新回数が重要 |
 | 画像サイズ | 1024、アスペクト比bucket有効 | 全体形状を学習する基準として妥当。細い壁・ドアが縮小で消えていないか、データごとの入力・正解の位置合わせは未確認 |
 | データ・拡張 | train109組・val10組、左右反転あり、回転なし | 全体学習の候補。暗記診断では反転もオフにし、入力と正解の整合を先に確認する。枚数の追加が必要かは未確定 |
-| prompt | CLIP captionは `an architectural floor plan`、T5 instructionは変換内容を明示 | 旧 `a photo of TOK floor plan.` より目的を表現しているが、実測で改善した保証はない。壁の「厚さを正確に保持」という文言が正解画像の標準化ルールに合っているか、実例で再確認する |
+| prompt | `a photo of TOK floor plan.` をcaption・instruction・inference_instructionで使用 | falの成功回とユーザーが確認した文に変更済み。以前検討した長い編集指示は未検証の別案として記録 |
 | 損失 | 標準flowのみ。latent/pixel再構成項は既定値0 | 旧Bでも採用。ノイズ推定の学習には妥当な基準だが、壁や開口の正しさを直接保証しない。構造を重視する損失は必要性を確認してから比較する |
 | 評価・停止 | 固定seed、val4枚を2epochごと、最低8epoch、改善なし5epochで早期停止 | wall IoUと固定条件のval flowを補助に選択する。IoUは画像全体の正解率でなく、停止・選択の誤判定もありうる。実際の画像を見る |
 
@@ -77,7 +77,7 @@ inference_instruction: a photo of TOK floor plan.
 
 このコードではcaptionがCLIP側、instructionがT5側の条件になる。通常のLoRA学習における `TOK` は文字列であり、特別な機能を自動で持つ予約語や、新規登録された専用tokenではない。共通の識別文字列として学習される可能性はあるが、「家具や寸法を消し、壁・開口・接続を保つ」という編集内容はこの文だけでは明示されない。**無効な入力とまでは言えないが、目的に合うinstructionへ見直す優先度が高い。**
 
-ローカルの [training_config.json](training_config.json) は提案設定へ変更済みで、新しい学習にはまだ使用していない。
+ローカルの [training_config.json](training_config.json) は、成功回についてユーザーが確認した `a photo of TOK floor plan.` をcaption・instruction・inference_instructionに設定済み。新しい学習にはまだ使用していない。以下は以前に検討した長い編集指示の候補で、現在の設定ではない。
 
 - caption: `an architectural floor plan`
 - instructionとinference_instruction: 寸法文字・ラベル・家具・ハッチング・不要線を除去し、壁・ドア・窓・開口・接続・位置を保つ旨の同一の英語指示。
