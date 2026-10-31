@@ -1,0 +1,12 @@
+{
+  "environment": "local meta model; diffusers 0.37.1, local peft version",
+  "trainable_elements": 171935744,
+  "trainable_tensor_count": 990,
+  "dtypes": {
+    "torch.float32": 990
+  },
+  "device_types": {
+    "meta": 990
+  },
+  "warning": "Meta tensors may not inherit the base dtype; this does not establish real-device dtype."
+}

@@ -1,0 +1,16 @@
+{
+  "instance_id": "i-02c9d1450ba6014f4",
+  "region": "ap-northeast-1",
+  "profile": "default",
+  "ssh_alias": "samurai-AWS",
+  "host_key_alias": "52.198.205.153",
+  "remote_project": "/home/ec2-user/workspace/flux-kontext-training",
+  "remote_python": "/home/ec2-user/workspace/flux-kontext-training/.venv312/bin/python",
+  "remote_base": "/home/ec2-user/.kontext-remote",
+  "local_project": "flux-kontext-training",
+  "cache_dir": ".local/results",
+  "setup_timeout_seconds": 360,
+  "collection_grace_seconds": 90,
+  "dedicated_instance": true,
+  "auto_review": true
+}

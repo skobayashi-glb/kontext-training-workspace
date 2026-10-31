@@ -1,0 +1,44 @@
+[
+  {
+    "dtype": "torch.bfloat16",
+    "lr": 1e-05,
+    "initial": 0.010009765625,
+    "after_10_steps": 0.010009765625,
+    "optimizer_exp_avg_dtype": "torch.bfloat16"
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "lr": 5e-05,
+    "initial": 0.010009765625,
+    "after_10_steps": 0.0093994140625,
+    "optimizer_exp_avg_dtype": "torch.bfloat16"
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "lr": 0.0001,
+    "initial": 0.010009765625,
+    "after_10_steps": 0.0087890625,
+    "optimizer_exp_avg_dtype": "torch.bfloat16"
+  },
+  {
+    "dtype": "torch.float32",
+    "lr": 1e-05,
+    "initial": 0.009999999776482582,
+    "after_10_steps": 0.009900003671646118,
+    "optimizer_exp_avg_dtype": "torch.float32"
+  },
+  {
+    "dtype": "torch.float32",
+    "lr": 5e-05,
+    "initial": 0.009999999776482582,
+    "after_10_steps": 0.00950000062584877,
+    "optimizer_exp_avg_dtype": "torch.float32"
+  },
+  {
+    "dtype": "torch.float32",
+    "lr": 0.0001,
+    "initial": 0.009999999776482582,
+    "after_10_steps": 0.009000010788440704,
+    "optimizer_exp_avg_dtype": "torch.float32"
+  }
+]

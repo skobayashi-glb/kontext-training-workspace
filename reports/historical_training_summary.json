@@ -1,0 +1,237 @@
+[
+  {
+    "id": "3f044ae6c084479aa513005ed4de22e3",
+    "config": {
+      "dataset": "default_train_simplified",
+      "method": "lora",
+      "source_checkpoint_id": null,
+      "model_name": "black-forest-labs/FLUX.1-Kontext-dev",
+      "caption": "a photo of TOK floor plan.",
+      "instruction": "a photo of TOK floor plan.",
+      "inference_instruction": "a photo of TOK floor plan.",
+      "epochs": 10,
+      "learning_rate": 0.0001021,
+      "rank": 16,
+      "transformer_lora_parameter_ratio_percent": 10.0,
+      "text_encoder_lora_parameter_ratio_percent": 0.1,
+      "prompt_tuning_tokens": 1,
+      "prompt_tuning_scope": "soft_prompt",
+      "prompt_embedding_learning_rate": 1e-05,
+      "batch_size": 2,
+      "resolution": 1024,
+      "gradient_accumulation_steps": 2,
+      "max_sequence_length": 512,
+      "seed": 42,
+      "optimizer": "adamw",
+      "train_text_encoder": false,
+      "train_text_encoder_2": false,
+      "text_encoder_learning_rate": null,
+      "lr_scheduler": "cosine",
+      "lr_warmup_fraction": 0.02,
+      "lr_num_cycles": 1,
+      "lr_cosine_decay_fraction": 0.5,
+      "lr_cosine_mid_ratio": 0.1,
+      "lr_cosine_final_ratio": 0.05,
+      "augment": true,
+      "rotation_mode": "cardinal",
+      "use_tiling": false,
+      "caption_dropout": 0.1,
+      "use_buckets": true,
+      "loss_delta_weight": 0.0,
+      "loss_delta_quantile": 0.95,
+      "reconstruction_latent_loss_weight": 0.0,
+      "reconstruction_pixel_loss_weight": 0.0,
+      "reconstruction_pixel_loss_crop_fraction": 0.5,
+      "reconstruction_loss_schedule": "cosine_ramp",
+      "reconstruction_loss_start_fraction": 0.0,
+      "reconstruction_loss_warmup_fraction": 1.0,
+      "reconstruction_loss_wave_amplitude": 0.2,
+      "reconstruction_loss_wave_cycles": 3.0
+    },
+    "epochs": [
+      {
+        "epoch": 1,
+        "steps": 55,
+        "total": 0.05617961818181818,
+        "flow": 0.05617961818181818,
+        "validation": 0.03923
+      },
+      {
+        "epoch": 2,
+        "steps": 55,
+        "total": 0.035344745454545454,
+        "flow": 0.035344745454545454,
+        "validation": 0.031694
+      },
+      {
+        "epoch": 3,
+        "steps": 55,
+        "total": 0.03685594545454546,
+        "flow": 0.03685594545454546,
+        "validation": 0.028243
+      },
+      {
+        "epoch": 4,
+        "steps": 55,
+        "total": 0.03400954545454545,
+        "flow": 0.03400954545454545,
+        "validation": 0.032555
+      },
+      {
+        "epoch": 5,
+        "steps": 55,
+        "total": 0.033332,
+        "flow": 0.033332,
+        "validation": 0.03149
+      },
+      {
+        "epoch": 6,
+        "steps": 55,
+        "total": 0.0369998,
+        "flow": 0.0369998,
+        "validation": 0.027889
+      },
+      {
+        "epoch": 7,
+        "steps": 55,
+        "total": 0.03301329090909091,
+        "flow": 0.03301329090909091,
+        "validation": 0.037847
+      },
+      {
+        "epoch": 8,
+        "steps": 55,
+        "total": 0.03181209090909091,
+        "flow": 0.03181209090909091,
+        "validation": 0.028142
+      },
+      {
+        "epoch": 9,
+        "steps": 48,
+        "total": 0.03146602083333333,
+        "flow": 0.03146602083333333,
+        "validation": null
+      }
+    ],
+    "flow_change_percent": -43.99032629325183
+  },
+  {
+    "id": "68ecf720d51049b6ad2d6b10d819df3b",
+    "config": {
+      "dataset": "default_train_simplified",
+      "method": "lora",
+      "source_checkpoint_id": null,
+      "model_name": "black-forest-labs/FLUX.1-Kontext-dev",
+      "caption": "a photo of TOK floor plan.",
+      "instruction": "a photo of TOK floor plan.",
+      "inference_instruction": "a photo of TOK floor plan.",
+      "epochs": 10,
+      "learning_rate": 1e-05,
+      "rank": 16,
+      "lora_parameter_ratio_percent": 1.0,
+      "prompt_tuning_tokens": 1,
+      "prompt_tuning_scope": "soft_prompt",
+      "prompt_embedding_learning_rate": 1e-05,
+      "batch_size": 2,
+      "resolution": 1024,
+      "gradient_accumulation_steps": 2,
+      "max_sequence_length": 512,
+      "seed": 42,
+      "optimizer": "adamw",
+      "train_text_encoder": true,
+      "train_text_encoder_2": true,
+      "text_encoder_learning_rate": null,
+      "lr_scheduler": "cosine",
+      "lr_warmup_fraction": 0.05,
+      "lr_num_cycles": 1,
+      "augment": true,
+      "rotation_mode": "cardinal",
+      "use_tiling": false,
+      "caption_dropout": 0.1,
+      "use_buckets": true,
+      "loss_delta_weight": 0.0,
+      "loss_delta_quantile": 0.95,
+      "reconstruction_latent_loss_weight": 1.0,
+      "reconstruction_pixel_loss_weight": 0.0,
+      "reconstruction_pixel_loss_crop_fraction": 0.5,
+      "reconstruction_loss_schedule": "cosine_ramp",
+      "reconstruction_loss_start_fraction": 0.0,
+      "reconstruction_loss_warmup_fraction": 1.0,
+      "reconstruction_loss_wave_amplitude": 0.2,
+      "reconstruction_loss_wave_cycles": 3.0
+    },
+    "epochs": [
+      {
+        "epoch": 1,
+        "steps": 55,
+        "total": 0.06097332727272727,
+        "flow": 0.06075267272727273,
+        "validation": 0.041721
+      },
+      {
+        "epoch": 2,
+        "steps": 55,
+        "total": 0.036090836363636365,
+        "flow": 0.03493950909090909,
+        "validation": 0.063881
+      },
+      {
+        "epoch": 3,
+        "steps": 55,
+        "total": 0.03795674545454546,
+        "flow": 0.03490485454545455,
+        "validation": 0.040127
+      },
+      {
+        "epoch": 4,
+        "steps": 55,
+        "total": 0.04185070909090909,
+        "flow": 0.035638745454545456,
+        "validation": 0.034337
+      },
+      {
+        "epoch": 5,
+        "steps": 55,
+        "total": 0.040671654545454544,
+        "flow": 0.03246452727272727,
+        "validation": 0.038832
+      },
+      {
+        "epoch": 6,
+        "steps": 55,
+        "total": 0.042991272727272725,
+        "flow": 0.031666854545454544,
+        "validation": 0.053474
+      },
+      {
+        "epoch": 7,
+        "steps": 55,
+        "total": 0.03990861818181818,
+        "flow": 0.028285345454545453,
+        "validation": 0.032404
+      },
+      {
+        "epoch": 8,
+        "steps": 55,
+        "total": 0.04238201818181818,
+        "flow": 0.028275236363636363,
+        "validation": 0.037882
+      },
+      {
+        "epoch": 9,
+        "steps": 55,
+        "total": 0.04751889090909091,
+        "flow": 0.03016538181818182,
+        "validation": 0.044149
+      },
+      {
+        "epoch": 10,
+        "steps": 55,
+        "total": 0.04758818181818182,
+        "flow": 0.029785781818181818,
+        "validation": 0.038732
+      }
+    ],
+    "flow_change_percent": -50.97206348123255
+  }
+]

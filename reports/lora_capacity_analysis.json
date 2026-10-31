@@ -1,0 +1,66 @@
+{
+  "source": "diffusers 0.37.1 FluxTransformer2DModel default architecture with guidance_embeds=true",
+  "architecture_assumption": "19 dual blocks, 38 single blocks, width 24*128; compare against actual EC2 model before treating as measured",
+  "model_weights_loaded": false,
+  "transformer_parameters_including_bias": 11901408320,
+  "target_linear_modules": 495,
+  "target_base_weights_excluding_bias": 11834425344,
+  "groups": {
+    "dual_transformer_blocks": {
+      "modules": 266,
+      "rank_denominator": 2918400,
+      "base_weight_parameters": 6455033856
+    },
+    "single_transformer_blocks": {
+      "modules": 228,
+      "rank_denominator": 2451456,
+      "base_weight_parameters": 5379194880
+    },
+    "final_projection": {
+      "modules": 1,
+      "rank_denominator": 3136,
+      "base_weight_parameters": 196608
+    }
+  },
+  "diffusers_kontext_example_targets": {
+    "target_linear_modules": 380,
+    "ranks": {
+      "16": 54165504,
+      "32": 108331008,
+      "64": 216662016
+    },
+    "source": "https://raw.githubusercontent.com/huggingface/diffusers/main/examples/dreambooth/train_dreambooth_lora_flux_kontext.py"
+  },
+  "ranks": {
+    "16": {
+      "trainable_parameters": 85967872,
+      "percent_of_transformer_parameters": 0.7223336069861016,
+      "percent_of_target_base_weights": 0.7264220230480842,
+      "bf16_weight_bytes_only": 171935744
+    },
+    "22": {
+      "trainable_parameters": 118205824,
+      "percent_of_transformer_parameters": 0.9932087096058897,
+      "percent_of_target_base_weights": 0.9988302816911158,
+      "bf16_weight_bytes_only": 236411648
+    },
+    "32": {
+      "trainable_parameters": 171935744,
+      "percent_of_transformer_parameters": 1.4446672139722032,
+      "percent_of_target_base_weights": 1.4528440460961685,
+      "bf16_weight_bytes_only": 343871488
+    },
+    "64": {
+      "trainable_parameters": 343871488,
+      "percent_of_transformer_parameters": 2.8893344279444064,
+      "percent_of_target_base_weights": 2.905688092192337,
+      "bf16_weight_bytes_only": 687742976
+    },
+    "128": {
+      "trainable_parameters": 687742976,
+      "percent_of_transformer_parameters": 5.778668855888813,
+      "percent_of_target_base_weights": 5.811376184384674,
+      "bf16_weight_bytes_only": 1375485952
+    }
+  }
+}

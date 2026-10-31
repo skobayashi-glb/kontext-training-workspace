@@ -1,0 +1,16 @@
+[
+  {
+    "id": "3f044ae6c084479aa513005ed4de22e3",
+    "B_tensors": 495,
+    "nonzero_B_tensors": 495,
+    "B_l2_norm": 9.365649812016487,
+    "B_max_abs": 0.005889892578125
+  },
+  {
+    "id": "68ecf720d51049b6ad2d6b10d819df3b",
+    "B_tensors": 567,
+    "nonzero_B_tensors": 567,
+    "B_l2_norm": 10.43498004677123,
+    "B_max_abs": 0.01324462890625
+  }
+]

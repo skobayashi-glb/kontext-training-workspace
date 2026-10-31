@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListTrainingBucket",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": "arn:aws:s3:::kontext-training-340752821887-3fc34c1f"
+    },
+    {
+      "Sid": "ReadTrainingObjects",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::kontext-training-340752821887-3fc34c1f/*"
+    },
+    {
+      "Sid": "WriteJobResults",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::kontext-training-340752821887-3fc34c1f/jobs/*"
+    },
+    {
+      "Sid": "TerminateTaggedTrainingInstances",
+      "Effect": "Allow",
+      "Action": "ec2:TerminateInstances",
+      "Resource": "arn:aws:ec2:ap-northeast-1:340752821887:instance/*",
+      "Condition": {"StringEquals": {"ec2:ResourceTag/KontextManaged": "ephemeral-training"}}
+    }
+  ]
+}

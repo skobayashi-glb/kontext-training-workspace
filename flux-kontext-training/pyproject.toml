@@ -1,0 +1,27 @@
+[project]
+name = "flux-kontext-training"
+version = "0.1.0"
+description = "Local Flux Kontext LoRA training dashboard"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate>=1.0.0",
+    "bitsandbytes>=0.43.0",
+    "diffusers>=0.36.0",
+    "fastapi>=0.115.0",
+    "peft>=0.13.0",
+    "pydantic>=2.8.0",
+    "torch>=2.4.0",
+    "transformers>=4.46.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+flux-kontext-training = "flux_kontext_training.api:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]

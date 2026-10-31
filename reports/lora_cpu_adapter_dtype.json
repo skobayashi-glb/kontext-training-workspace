@@ -1,0 +1,11 @@
+{
+  "environment": "local small real CPU model; not the EC2 software environment",
+  "torch": "2.7.0+cu118",
+  "peft": "0.17.1",
+  "diffusers": "0.37.1",
+  "base_dtype": "torch.bfloat16",
+  "trainable_dtypes": {
+    "torch.bfloat16": 42
+  },
+  "trainable_elements": 9472
+}

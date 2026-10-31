@@ -1,0 +1,38 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+.venv*/
+.env
+.env.*
+
+# Training outputs
+runs/
+models/
+data/
+pra/
+
+# Frontend
+ui/node_modules/
+ui/dist/
+ui/.vite/
+ui/tsconfig.tsbuildinfo
+
+# Local assistant/editor state
+.agents/
+.codex
+
+
+datasets/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.safetensors
